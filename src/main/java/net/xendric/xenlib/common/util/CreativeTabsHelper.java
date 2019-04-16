@@ -7,18 +7,34 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class CreativeTabsHelper extends CreativeTabs {
-	static boolean searchBar;
-	static int searchBarWidth;
-	static int labelColor;
-	static EnumDyeColor enumLabelColor;
-	static Item itemIcon;
+	boolean searchBar;
+	int searchBarWidth;
+	int labelColor;
+	EnumDyeColor enumLabelColor;
+	Item itemIcon;
 
+	/**
+	 * @param String
+	 *            - Unlocalized Name
+	 * @param Item
+	 *            - Tab Icon
+	 * @param Boolean
+	 *            - Search Bar
+	 */
 	public CreativeTabsHelper(String name, Item icon, boolean searchBar) {
 		super(name);
-		CreativeTabsHelper.itemIcon = icon;
-		CreativeTabsHelper.searchBar = searchBar;
+		this.itemIcon = icon;
+		this.searchBar = searchBar;
 	}
 
+	/**
+	 * @param String
+	 *            - Unlocalized Name
+	 * @param Block
+	 *            - Tab Icon
+	 * @param Boolean
+	 *            - Search Bar
+	 */
 	public CreativeTabsHelper(String name, Block icon, boolean searchBar) {
 		this(name, Item.getItemFromBlock(icon), searchBar);
 	}
@@ -43,18 +59,19 @@ public class CreativeTabsHelper extends CreativeTabs {
 		return labelColor;
 	}
 
-	/**
-	 * Static accessors below
-	 */
-	public static void getLabelColor(int labelColor) {
-		CreativeTabsHelper.labelColor = labelColor;
+	public CreativeTabs setLabelColor(int labelColor) {
+		this.labelColor = labelColor;
+		return this;
 	}
 
-	public static void getLabelColor(EnumDyeColor labelColor) {
-		CreativeTabsHelper.labelColor = labelColor.getColorValue();
+	public CreativeTabs setLabelColor(EnumDyeColor labelColor) {
+		this.labelColor = labelColor.getColorValue();
+		return this;
 	}
 
-	public static void getSearchbarWidth(int searchBarWidth) {
-		CreativeTabsHelper.searchBarWidth = searchBarWidth;
+	public CreativeTabs setSearchbarWidth(int searchBarWidth) {
+		if (this.searchBar)
+			this.searchBarWidth = searchBarWidth;
+		return this;
 	}
 }

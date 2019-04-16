@@ -17,7 +17,7 @@ import net.xendric.xenlib.common.core.proxy.CommonProxy;
 
 /**
  * Here to properly render/model edible blocks so the mod works for server.
- * (Putting this in the ModelHandler class crashes the game)
+ * (Putting this in the ModelRegister class crashes the game)
  * 
  * @author MCE626
  */
@@ -32,7 +32,7 @@ public class ClientProxy extends CommonProxy {
 
 	/**
 	 * So we can render block models that are smaller than a normal block. Used
-	 * by LittleUtilities' edible blocks to render in inventory/item on ground.
+	 * by edible blocks to render in inventory/item on ground.
 	 * 
 	 * @param block
 	 * @param item

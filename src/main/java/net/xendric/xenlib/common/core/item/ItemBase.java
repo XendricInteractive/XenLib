@@ -12,16 +12,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.client.core.proxy.ClientProxy;
 import net.xendric.xenlib.client.core.render.IModelRegister;
-import net.xendric.xenlib.common.core.block.ObjectHandler;
+import net.xendric.xenlib.common.core.ObjectHandler;
 
 public class ItemBase extends Item implements IModelRegister {
-	static String toolTip;
+	public String toolTip;
 
 	public ItemBase(String name) {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		ObjectHandler.ITEMS.add(this);
-		setCreativeTab(ObjectHandler.getCreativeTab());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -29,13 +28,14 @@ public class ItemBase extends Item implements IModelRegister {
 		ClientProxy.registerItemModel(this, 0, "inventory");
 	}
 
-	public static String toolTip(String toolTip) {
-		return ItemBase.toolTip = toolTip;
+	public Item setToolTip(String toolTip) {
+		this.toolTip = toolTip;
+		return this;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-		list.add(toolTip(toolTip));
+		list.add(toolTip.toString());
 	}
 }
