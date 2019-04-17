@@ -2,18 +2,21 @@ package net.xendric.xenlib.common.util;
 
 import java.lang.reflect.Method;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.versioning.DependencyParser.DependencyInfo;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
-import net.xendric.xenlib.common.References;
 
 /**
  * Generic useful types n' to use anywhere, because they're a pain to type out
  * each time! Also useful methods.
  */
 public class Util {
-	static DependencyInfo info = new DependencyInfo();
 	public static String[] dyes = { "Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "LightGray", "Gray",
 			"Pink", "Lime", "Yellow", "LightBlue", "Magenta", "Orange", "White" };
 
@@ -35,8 +38,8 @@ public class Util {
 	}
 
 	/**
-	 * Takes in a class, and a method name. Checks to see if supplied method
-	 * name exists in that class and returns a boolean. Could be useful someday?
+	 * Takes in a class, and a method name. Checks to see if supplied method name
+	 * exists in that class and returns a boolean. Could be useful someday?
 	 * 
 	 * @param clazz
 	 * @param methodName
@@ -51,10 +54,13 @@ public class Util {
 		return result;
 	}
 
-	public static String getModDependents() {
-		if(info.dependants.equals(References.MODID))
-			for (String s : info.dependants.toArray(new String[0]))
-				return s;
-		return null;
+	public Block getBlockFromMod(String mod, String blockName) {
+		Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(mod + ":" + blockName));
+		return block == null ? Blocks.AIR : block;
+	}
+
+	public Item getItemFromMod(String mod, String itemName) {
+		Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(mod + ":" + itemName));
+		return item == null ? Items.AIR : item;
 	}
 }

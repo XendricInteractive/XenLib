@@ -29,7 +29,7 @@ public class BlockFarmlandBase extends BlockFarmland implements IModelRegister {
 		ClientProxy.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
 	}
 
-	public boolean hasWater(World world, BlockPos pos) {
+	public static boolean hasWater(World world, BlockPos pos) {
 		for (BlockPos.MutableBlockPos mutable : BlockPos.getAllInBoxMutable(pos.add(-4, 0, -4), pos.add(4, 1, 4)))
 			if (world.getBlockState(mutable).getMaterial() == Material.WATER)
 				return true;

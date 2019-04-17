@@ -16,9 +16,9 @@ public class BlockBoundsBase extends BlockBase {
 	 * @param minX
 	 * @param minY
 	 * @param minZ
-	 * @param maxX
-	 * @param maxY
-	 * @param maxZ
+	 * @param maxX (1d - maxX)
+	 * @param maxY (1d - maxY)
+	 * @param maxZ (1d - maxZ)
 	 */
 	public BlockBoundsBase(String name, Material mat, double minX, double minY, double minZ, double maxX, double maxY,
 			double maxZ) {

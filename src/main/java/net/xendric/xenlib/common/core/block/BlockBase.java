@@ -30,7 +30,6 @@ public class BlockBase extends Block implements IModelRegister {
 			ObjectHandler.ITEMS.add(new ItemBlockUsable(this).setRegistryName(this.getRegistryName()));
 		else
 			ObjectHandler.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-
 	}
 
 	public BlockBase(String name, Material mat, SoundType sound) {
