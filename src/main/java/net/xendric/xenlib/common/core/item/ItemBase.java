@@ -16,6 +16,7 @@ import net.xendric.xenlib.common.core.ObjectHandler;
 
 public class ItemBase extends Item implements IModelRegister {
 	public String toolTip;
+	boolean hasToolTip;
 
 	public ItemBase(String name) {
 		setUnlocalizedName(name);
@@ -29,13 +30,20 @@ public class ItemBase extends Item implements IModelRegister {
 	}
 
 	public Item setToolTip(String toolTip) {
-		this.toolTip = toolTip;
+		if (toolTip != null) {
+			this.hasToolTip = true;
+			this.toolTip = toolTip;
+		}
 		return this;
 	}
 
-	@SideOnly(Side.CLIENT)
+	/**
+	 * Here so yall can know how to add tooltips to items.
+	 */
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-		list.add(toolTip.toString());
+		if (this.hasToolTip)
+			list.add(toolTip.toString());
 	}
 }

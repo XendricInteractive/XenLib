@@ -4,13 +4,16 @@ import java.lang.reflect.Method;
 
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.versioning.DependencyParser.DependencyInfo;
 import net.minecraftforge.oredict.OreDictionary;
+import net.xendric.xenlib.common.References;
 
 /**
  * Generic useful types n' to use anywhere, because they're a pain to type out
  * each time! Also useful methods.
  */
 public class Util {
+	static DependencyInfo info = new DependencyInfo();
 	public static String[] dyes = { "Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "LightGray", "Gray",
 			"Pink", "Lime", "Yellow", "LightBlue", "Magenta", "Orange", "White" };
 
@@ -46,5 +49,12 @@ public class Util {
 				return true;
 		}
 		return result;
+	}
+
+	public static String getModDependents() {
+		if(info.dependants.equals(References.MODID))
+			for (String s : info.dependants.toArray(new String[0]))
+				return s;
+		return null;
 	}
 }

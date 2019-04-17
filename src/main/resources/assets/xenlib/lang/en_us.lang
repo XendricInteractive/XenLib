@@ -2,7 +2,15 @@
 # By MCE626
 # Created 4/16/2019
 
+// GUI
 itemGroup.xenlib=XenLib
+
+// WAILA STUFF
+waila.lu.edible_block.bites=Bites Left
+waila.lu.edible_block.bites.last=Bite Left
+waila.lu.edible_block.bites.last.ee=Byte Left
+waila.lu.usable_block.uses=Uses Left
+waila.lu.usable_block.uses.last=Use Left
 
 // ITEMS
 item.xendric_wrench.name=Wrench

@@ -7,11 +7,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.FarmlandWaterManager;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.client.core.proxy.ClientProxy;
 import net.xendric.xenlib.client.core.render.IModelRegister;
-import net.xendric.xenlib.common.core.ObjectHandler;
 
 public class BlockFarmlandBase extends BlockFarmland implements IModelRegister {
 	public BlockFarmlandBase(String name) {
@@ -20,8 +20,8 @@ public class BlockFarmlandBase extends BlockFarmland implements IModelRegister {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 
-		ObjectHandler.BLOCKS.add(this);
-		ObjectHandler.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		ForgeRegistries.BLOCKS.register(this);
+		ForgeRegistries.ITEMS.register(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
 	@SideOnly(Side.CLIENT)
