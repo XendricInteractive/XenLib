@@ -7,9 +7,9 @@
 Team Xendric's Library we use for our mods.
 
 # Team Xendric
-|![MCE626](https://avatars3.githubusercontent.com/u/3208225?v=4&s=150)
-|:--------:|
-| [@MCE626](https://github.com/MCE626)
+|![MCE626](https://avatars1.githubusercontent.com/u/3208225?s=150) | ![Tic-toc26](https://avatars1.githubusercontent.com/u/8044082?s=150) | ![TheCrazyGuy15052](https://avatars1.githubusercontent.com/u/8044041?s=150)
+|:---:|:---:|:---:
+| [@MCE626](https://github.com/MCE626) | [@Tic-toc26](https://github.com/Tic-toc26) | [@TheCrazyGuy15052](https://github.com/TheCrazyGuy15052)
 
 ------
 # Custom License for this Repository
