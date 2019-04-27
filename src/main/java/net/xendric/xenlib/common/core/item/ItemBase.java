@@ -12,16 +12,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.client.core.proxy.ClientProxy;
 import net.xendric.xenlib.client.core.render.IModelRegister;
-import net.xendric.xenlib.common.core.ObjectHandler;
 
 public class ItemBase extends Item implements IModelRegister {
 	public String toolTip;
 	boolean hasToolTip;
 
-	public ItemBase(String name) {
+	public ItemBase(String name, List<Item> itemList) {
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		ObjectHandler.ITEMS.add(this);
+		itemList.add(this);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -1,7 +1,11 @@
 package net.xendric.xenlib.common.core.block;
 
+import java.util.List;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -20,9 +24,9 @@ public class BlockBoundsBase extends BlockBase {
 	 * @param maxY (1d - maxY)
 	 * @param maxZ (1d - maxZ)
 	 */
-	public BlockBoundsBase(String name, Material mat, double minX, double minY, double minZ, double maxX, double maxY,
-			double maxZ) {
-		super(name, mat);
+	public BlockBoundsBase(String name, Material mat, List<Block> blockList, List<Item> itemList, double minX,
+			double minY, double minZ, double maxX, double maxY, double maxZ) {
+		super(name, mat, blockList, itemList);
 	}
 
 	@Override

@@ -10,13 +10,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.versioning.DependencyParser.DependencyInfo;
 import net.minecraftforge.oredict.OreDictionary;
+import net.xendric.xenlib.common.References;
 
 /**
  * Generic useful types n' to use anywhere, because they're a pain to type out
  * each time! Also useful methods.
  */
 public class Util {
+	static DependencyInfo info = new DependencyInfo();
 	public static String[] dyes = { "Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "LightGray", "Gray",
 			"Pink", "Lime", "Yellow", "LightBlue", "Magenta", "Orange", "White" };
 
@@ -62,5 +65,12 @@ public class Util {
 	public Item getItemFromMod(String mod, String itemName) {
 		Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(mod + ":" + itemName));
 		return item == null ? Items.AIR : item;
+	}
+
+	public static String getDependents() {
+		for (String s : info.dependants.toArray(new String[0]))
+			if (s.equals(References.MODID))
+				return s;
+		return null;
 	}
 }

@@ -1,6 +1,5 @@
 package net.xendric.xenlib.common;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -36,7 +35,7 @@ public class XenLib {
 		proxy.preInit(e);
 		OreDict.registerOreDict();
 
-		ForgeRegistries.BLOCKS.registerAll(ObjectHandler.BLOCKS.toArray(new Block[0]));
+		// Specifically for this mod
 		ForgeRegistries.ITEMS.registerAll(ObjectHandler.ITEMS.toArray(new Item[0]));
 	}
 

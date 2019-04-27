@@ -1,5 +1,8 @@
 package net.xendric.xenlib.common.core.block;
 
+import java.util.List;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -28,8 +31,8 @@ public class BlockUsable extends BlockBase {
 	private int potionAmplifier;
 	private float potionEffectProbability;
 
-	public BlockUsable(String name, Material mat) {
-		super(name, mat);
+	public BlockUsable(String name, Material mat, List<Block> blockList, List<Item> itemList) {
+		super(name, mat, blockList, itemList);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, 0));
 	}
 

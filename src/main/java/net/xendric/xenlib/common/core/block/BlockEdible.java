@@ -1,5 +1,8 @@
 package net.xendric.xenlib.common.core.block;
 
+import java.util.List;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -39,8 +42,8 @@ public class BlockEdible extends BlockBase {
 	 * @param lvl
 	 * @param sat
 	 */
-	public BlockEdible(String name, Material mat, int lvl, float sat) {
-		super(name, mat);
+	public BlockEdible(String name, Material mat, List<Block> blockList, List<Item> itemList, int lvl, float sat) {
+		super(name, mat, blockList, itemList);
 		this.lvl = lvl;
 		this.sat = sat;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AMOUNT, 0));

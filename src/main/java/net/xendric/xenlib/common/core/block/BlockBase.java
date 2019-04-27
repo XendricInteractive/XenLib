@@ -1,5 +1,7 @@
 package net.xendric.xenlib.common.core.block;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -12,28 +14,27 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.client.core.proxy.ClientProxy;
 import net.xendric.xenlib.client.core.render.IModelRegister;
-import net.xendric.xenlib.common.core.ObjectHandler;
 import net.xendric.xenlib.common.core.item.ItemBlockEdible;
 import net.xendric.xenlib.common.core.item.ItemBlockUsable;
 
 public class BlockBase extends Block implements IModelRegister {
-	public BlockBase(String name, Material mat) {
+	public BlockBase(String name, Material mat, List<Block> blockList, List<Item> itemList) {
 		super(mat);
 
 		setUnlocalizedName(name);
 		setRegistryName(name);
 
-		ObjectHandler.BLOCKS.add(this);
+		blockList.add(this);
 		if (this instanceof BlockEdible)
-			ObjectHandler.ITEMS.add(new ItemBlockEdible(this).setRegistryName(this.getRegistryName()));
+			itemList.add(new ItemBlockEdible(this).setRegistryName(this.getRegistryName()));
 		else if (this instanceof BlockUsable)
-			ObjectHandler.ITEMS.add(new ItemBlockUsable(this).setRegistryName(this.getRegistryName()));
+			itemList.add(new ItemBlockUsable(this).setRegistryName(this.getRegistryName()));
 		else
-			ObjectHandler.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+			itemList.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
-	public BlockBase(String name, Material mat, SoundType sound) {
-		this(name, mat);
+	public BlockBase(String name, Material mat, List<Block> blockList, List<Item> itemList, SoundType sound) {
+		this(name, mat, blockList, itemList);
 		this.blockSoundType = sound;
 	}
 
