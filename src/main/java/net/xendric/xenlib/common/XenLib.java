@@ -17,6 +17,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.common.core.ObjectHandler;
 import net.xendric.xenlib.common.core.proxy.CommonProxy;
+import net.xendric.xenlib.common.handlers.OreDictionaryHandler;
+import net.xendric.xenlib.common.handlers.OreGenerationHandler;
 import net.xendric.xenlib.common.util.CreativeTabsHelper;
 
 @Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, updateJSON = References.UPDATE)
@@ -39,11 +41,15 @@ public class XenLib {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
-		OreDict.registerOreDict();
 
 		// Specifically for this mod
 		ForgeRegistries.ITEMS.registerAll(ObjectHandler.ITEMS.toArray(new Item[0]));
 		ForgeRegistries.BLOCKS.registerAll(ObjectHandler.BLOCKS.toArray(new Block[0]));
+
+		OreGenerationHandler.addOre(ObjectHandler.ORE_COPPER.getDefaultState(), 15, 75, 2, 8, 10);
+
+		OreGenerationHandler.generateOres();
+		OreDictionaryHandler.registerOreDict();
 	}
 
 	@EventHandler
