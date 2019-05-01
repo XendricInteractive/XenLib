@@ -12,10 +12,8 @@ public class CreativeTabsHelper extends CreativeTabs {
 	EnumDyeColor enumLabelColor;
 
 	/**
-	 * @param String
-	 *            - Unlocalized Tab Name
-	 * @param Boolean
-	 *            - Search Bar
+	 * @param String  - Unlocalized Tab Name
+	 * @param Boolean - Search Bar
 	 */
 	public CreativeTabsHelper(String name, boolean hasSearchBar) {
 		super(name);
@@ -47,19 +45,19 @@ public class CreativeTabsHelper extends CreativeTabs {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public CreativeTabs setLabelColor(int labelColor) {
+	public CreativeTabsHelper setLabelColor(int labelColor) {
 		this.labelColor = labelColor;
 		return this;
 	}
 
 	@SideOnly(Side.CLIENT)
-	public CreativeTabs setLabelColor(EnumDyeColor labelColor) {
+	public CreativeTabsHelper setLabelColor(EnumDyeColor labelColor) {
 		this.labelColor = labelColor.getColorValue();
 		return this;
 	}
 
 	@SideOnly(Side.CLIENT)
-	public CreativeTabs setSearchbarWidth(int searchBarWidth) {
+	public CreativeTabsHelper setSearchbarWidth(int searchBarWidth) {
 		if (this.searchBar)
 			this.searchBarWidth = searchBarWidth;
 		return this;

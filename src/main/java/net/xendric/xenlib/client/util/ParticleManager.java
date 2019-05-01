@@ -6,9 +6,6 @@ import net.minecraft.world.World;
 
 public class ParticleManager {
 	private static Minecraft minecraft = Minecraft.getMinecraft();
-	private static float particleRed, particleGreen, particleBlue, multipleParticleScaleBy;
-	private static int maxAge;
-	private static boolean nextTextureIndexX;
 
 	/**
 	 * Particle manager spawning particles and not crashing client or server!
@@ -20,7 +17,8 @@ public class ParticleManager {
 	 * @param clazz
 	 * @return Particle
 	 */
-	public static Particle spawnParticle(World world, double posX, double posY, double posZ, Particle clazz) {
+	public static Particle spawnParticle(World world, double posX, double posY, double posZ, Particle clazz, float red,
+			float green, float blue, float scaleBy, int maxAge, boolean nextIndexX) {
 		if (minecraft != null && minecraft.getRenderViewEntity() != null && minecraft.effectRenderer != null) {
 			int particleSetting = minecraft.gameSettings.particleSetting;
 			if (particleSetting == 1 && world.rand.nextInt(3) == 0)
@@ -39,11 +37,11 @@ public class ParticleManager {
 
 				if (clazz != null) {
 					fx = clazz;
-					fx.setRBGColorF(particleRed, particleGreen, particleBlue);
-					fx.multipleParticleScaleBy(multipleParticleScaleBy);
+					fx.setRBGColorF(red, green, blue);
+					fx.multipleParticleScaleBy(scaleBy);
 					fx.setMaxAge(maxAge);
 
-					if (nextTextureIndexX)
+					if (nextIndexX)
 						fx.nextTextureIndexX();
 				}
 
@@ -54,23 +52,5 @@ public class ParticleManager {
 			}
 		}
 		return null;
-	}
-
-	public static void setParticleRGB(float red, float green, float blue) {
-		particleRed = red;
-		particleGreen = green;
-		particleBlue = blue;
-	}
-
-	public static void setMultipleParticleScaleBy(float scale) {
-		multipleParticleScaleBy = scale;
-	}
-
-	public static void setMaxAge(int age) {
-		maxAge = age;
-	}
-
-	public static void doNextTextureIndexX(boolean doFunction) {
-		nextTextureIndexX = doFunction;
 	}
 }

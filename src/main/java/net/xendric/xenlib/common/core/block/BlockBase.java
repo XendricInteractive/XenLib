@@ -2,12 +2,16 @@ package net.xendric.xenlib.common.core.block;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -18,6 +22,9 @@ import net.xendric.xenlib.common.core.item.ItemBlockEdible;
 import net.xendric.xenlib.common.core.item.ItemBlockUsable;
 
 public class BlockBase extends Block implements IModelRegister {
+	public String toolTip;
+	boolean hasToolTip;
+
 	public BlockBase(String name, Material mat, List<Block> blockList, List<Item> itemList) {
 		super(mat);
 
@@ -46,6 +53,24 @@ public class BlockBase extends Block implements IModelRegister {
 			ClientProxy.registerItemBlockModel(this, new ItemBlockUsable(this), "inventory");
 		else
 			ClientProxy.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
+	}
+
+	public Block setToolTip(String toolTip) {
+		if (toolTip != null) {
+			this.hasToolTip = true;
+			this.toolTip = toolTip;
+		}
+		return this;
+	}
+
+	/**
+	 * Here so yall can know how to add tooltips to items.
+	 */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
+		if (this.hasToolTip)
+			list.add(toolTip.toString());
 	}
 
 	public static void turnIntoWater(World world, BlockPos pos) {
