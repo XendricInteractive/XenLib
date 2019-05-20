@@ -5,16 +5,20 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.config.Config.Type;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.xendric.xenlib.common.config.XenlibConfigManager;
 import net.xendric.xenlib.common.core.ObjectHandler;
 import net.xendric.xenlib.common.core.proxy.CommonProxy;
 import net.xendric.xenlib.common.handlers.OreDictionaryHandler;
@@ -46,7 +50,8 @@ public class XenLib {
 		ForgeRegistries.ITEMS.registerAll(ObjectHandler.ITEMS.toArray(new Item[0]));
 		ForgeRegistries.BLOCKS.registerAll(ObjectHandler.BLOCKS.toArray(new Block[0]));
 
-		OreGenerationHandler.addOre(ObjectHandler.ORE_COPPER.getDefaultState(), 15, 75, 2, 8, 10);
+		if (XenlibConfigManager.oreGen.copperGeneration)
+			OreGenerationHandler.addOre(ObjectHandler.ORE_COPPER.getDefaultState(), 15, 75, 2, 8, 10);
 
 		OreGenerationHandler.generateOres();
 		OreDictionaryHandler.registerOreDict();
@@ -55,6 +60,8 @@ public class XenLib {
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
 		proxy.init(e);
+		ConfigManager.sync(References.MODID, Type.INSTANCE);
+		FMLInterModComms.sendMessage(References.WAILA, "register", "mce.lu.api.waila.WailaDataProvider.register");
 	}
 
 	@EventHandler
