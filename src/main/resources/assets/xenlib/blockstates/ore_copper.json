@@ -1,0 +1,7 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"inventory": {"model": "xenlib:normal_block", "textures": {"all": "xenlib:blocks/ore_copper"}},
+		"normal": {"model": "xenlib:normal_block", "textures": {"all": "xenlib:blocks/ore_copper"}}
+	}
+}

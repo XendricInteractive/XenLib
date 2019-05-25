@@ -63,7 +63,7 @@ public class XenLib {
 	public void init(FMLInitializationEvent e) {
 		proxy.init(e);
 		ConfigManager.sync(References.MODID, Type.INSTANCE);
-		FMLInterModComms.sendMessage(References.WAILA, "register", "mce.lu.api.waila.WailaDataProvider.register");
+		FMLInterModComms.sendMessage(References.WAILA, "register", "net.xendric.xenlib.api.waila.WailaDataProvider.register");
 	}
 
 	@EventHandler
