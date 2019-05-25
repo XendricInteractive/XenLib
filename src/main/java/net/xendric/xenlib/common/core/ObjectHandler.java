@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.xendric.xenlib.common.core.block.BlockBase;
-import net.xendric.xenlib.common.core.block.OreBase;
+import net.xendric.xenlib.common.core.block.BlockOreBase;
 import net.xendric.xenlib.common.core.item.ItemBase;
 import net.xendric.xenlib.common.core.item.Wrench;
 
@@ -18,7 +18,7 @@ public class ObjectHandler {
 
 	//// BLOCKS
 	// ORES
-	public static final Block ORE_COPPER = new OreBase("ore_copper", BLOCKS, ITEMS, "pickaxe", 1)
+	public static final Block ORE_COPPER = new BlockOreBase("ore_copper", BLOCKS, ITEMS, "pickaxe", 1)
 			.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
 	// MINERAL BLOCKS

@@ -11,8 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.client.core.proxy.ClientProxy;
 import net.xendric.xenlib.client.core.render.IModelRegister;
 
-public class OreBase extends BlockOre implements IModelRegister {
-	public OreBase(String name, List<Block> blockList, List<Item> itemList, String harvestTool, int harvestLevel) {
+public class BlockOreBase extends BlockOre implements IModelRegister {
+	public BlockOreBase(String name, List<Block> blockList, List<Item> itemList, String harvestTool, int harvestLevel) {
 		super();
 		setUnlocalizedName(name);
 		setRegistryName(name);
