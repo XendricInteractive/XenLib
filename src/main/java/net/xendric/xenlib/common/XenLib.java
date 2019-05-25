@@ -1,10 +1,9 @@
 package net.xendric.xenlib.common;
 
+import static net.xendric.xenlib.common.config.XenLibConfigManager.oreGen;
+
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.common.Mod;
@@ -16,14 +15,11 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.xendric.xenlib.common.config.XenlibConfigManager;
+import net.xendric.xenlib.common.config.XenLibConfigManager;
 import net.xendric.xenlib.common.core.ObjectHandler;
 import net.xendric.xenlib.common.core.proxy.CommonProxy;
 import net.xendric.xenlib.common.handlers.OreDictionaryHandler;
 import net.xendric.xenlib.common.handlers.OreGenerationHandler;
-import net.xendric.xenlib.common.util.CreativeTabsHelper;
 
 @Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, updateJSON = References.UPDATE)
 public class XenLib {
@@ -33,25 +29,31 @@ public class XenLib {
 	@SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 
-	/** Registering a creative tab with this library mod */
-	public static CreativeTabs tab = new CreativeTabsHelper("xenlib", false) {
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-			return new ItemStack(ObjectHandler.WRENCH);
-		}
-	}.setLabelColor(EnumDyeColor.ORANGE);
-
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
 		proxy.preInit(e);
 
-		// Specifically for this mod
-		ForgeRegistries.ITEMS.registerAll(ObjectHandler.ITEMS.toArray(new Item[0]));
-		ForgeRegistries.BLOCKS.registerAll(ObjectHandler.BLOCKS.toArray(new Block[0]));
+		/**
+		 * Specifically for disabling common metal stuff, but still allowing the wrench
+		 * to be registered.
+		 */
+		for (Item item : ObjectHandler.ITEMS) {
+			if (item != ObjectHandler.WRENCH) {
+				if (!XenLibConfigManager.disableCommonMetals)
+					ForgeRegistries.ITEMS.register(item);
+			} else
+				ForgeRegistries.ITEMS.register(item);
+		}
 
-		if (XenlibConfigManager.oreGen.copperGeneration)
-			OreGenerationHandler.addOre(ObjectHandler.ORE_COPPER.getDefaultState(), 15, 75, 2, 8, 10);
+		for (Block block : ObjectHandler.BLOCKS) {
+			if (!XenLibConfigManager.disableCommonMetals)
+				ForgeRegistries.BLOCKS.register(block);
+		}
+
+		if (!oreGen.disableCopperGeneration || !XenLibConfigManager.disableCommonMetals)
+			OreGenerationHandler.addOre(ObjectHandler.ORE_COPPER.getDefaultState(), oreGen.copperGen.copperMinY,
+					oreGen.copperGen.copperMaxY, oreGen.copperGen.copperMinSize, oreGen.copperGen.copperMaxSize,
+					oreGen.copperGen.copperRarity);
 
 		OreGenerationHandler.generateOres();
 		OreDictionaryHandler.registerOreDict();

@@ -12,5 +12,20 @@ waila.lu.edible_block.bites.last.ee=Byte Left
 waila.lu.usable_block.uses=Uses Left
 waila.lu.usable_block.uses.last=Use Left
 
+// BLOCKS
+tile.ore_copper.name=Copper Ore
+
+tile.block_copper.name=Copper Block
+tile.block_steel.name=Steel Block
+
 // ITEMS
 item.xendric_wrench.name=Wrench
+
+item.ingot_copper.name=Copper Ingot
+item.ingot_steel.name=Steel Ingot
+
+item.nugget_copper.name=Copper Nugget
+item.nugget_steel.name=Steel Nugget
+
+item.dust_copper.name=Copper Dust
+item.dust_steel.name=Steel Dust

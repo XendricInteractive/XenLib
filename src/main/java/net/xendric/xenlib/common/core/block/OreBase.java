@@ -16,7 +16,7 @@ public class OreBase extends BlockOre implements IModelRegister {
 		super();
 		setUnlocalizedName(name);
 		setRegistryName(name);
-
+		
 		blockList.add(this);
 		itemList.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 		
