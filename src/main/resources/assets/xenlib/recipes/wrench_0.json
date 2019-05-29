@@ -12,8 +12,7 @@
   ],
   "key": {
     "*": {
-      "item": "minecraft:dye",
-      "data": 6
+      "item": "minecraft:iron_ingot"
     },
     "m": {
       "item": "littleutilities:pure_quartz"
