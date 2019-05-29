@@ -1,0 +1,17 @@
+{
+  "conditions":[
+    {
+      "type": "xenlib:disable_common_metals"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "xenlib:block_copper"
+    }
+  ],
+  "result": {
+    "item": "xenlib:ingot_copper",
+    "count": 9
+  }
+}

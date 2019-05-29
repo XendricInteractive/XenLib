@@ -1,0 +1,21 @@
+{
+  "conditions":[
+    {
+      "type": "xenlib:disable_common_metals"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    "***",
+    "***"
+  ],
+  "key": {
+    "*": {
+      "item": "xenlib:nugget_copper"
+    }
+  },
+  "result": {
+    "item": "xenlib:ingot_copper"
+  }
+}

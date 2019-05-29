@@ -1,0 +1,7 @@
+{
+	"conditions": {
+		"disable_common_metals": "net.xendric.xenlib.common.config.ConditionDisableCommonMetals",
+		"lu_not_installed": "net.xendric.xenlib.common.config.ConditionLUNotInstalled",
+		"lu_installed": "net.xendric.xenlib.common.config.ConditionLUInstalled"
+	}
+}

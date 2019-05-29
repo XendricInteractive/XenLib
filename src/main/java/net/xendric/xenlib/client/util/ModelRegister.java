@@ -33,5 +33,9 @@ public class ModelRegister {
 		for (Item item : ObjectHandler.ITEMS)
 			if (item instanceof IModelRegister)
 				((IModelRegister) item).registerItemModels();
+
+		for (Block block : ObjectHandler.BLOCKS)
+			if (block instanceof IModelRegister)
+				((IModelRegister) block).registerItemModels();
 	}
 }

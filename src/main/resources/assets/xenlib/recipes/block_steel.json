@@ -1,0 +1,21 @@
+{
+  "conditions":[
+    {
+      "type": "xenlib:disable_common_metals"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    "***",
+    "***"
+  ],
+  "key": {
+    "*": {
+      "item": "xenlib:ingot_steel"
+    }
+  },
+  "result": {
+    "item": "xenlib:block_steel"
+  }
+}

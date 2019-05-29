@@ -1,0 +1,24 @@
+{
+  "conditions":[
+    {
+      "type": "xenlib:lu_not_installed"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "* *",
+    " m ",
+    " * "
+  ],
+  "key": {
+    "*": {
+      "item": "minecraft:iron_ingot"
+    },
+    "m": {
+      "item": "xenlib:ingot_copper"
+    }
+  },
+  "result": {
+    "item": "xenlib:xendric_wrench"
+  }
+}

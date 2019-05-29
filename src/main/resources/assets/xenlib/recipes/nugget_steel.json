@@ -1,0 +1,17 @@
+{
+  "conditions":[
+    {
+      "type": "xenlib:disable_common_metals"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "xenlib:ingot_steel"
+    }
+  ],
+  "result": {
+    "item": "xenlib:nugget_steel",
+    "count": 9
+  }
+}

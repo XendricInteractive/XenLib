@@ -1,0 +1,25 @@
+{
+  "conditions":[
+    {
+      "type": "xenlib:lu_installed"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "* *",
+    " m ",
+    " * "
+  ],
+  "key": {
+    "*": {
+      "item": "minecraft:dye",
+      "data": 6
+    },
+    "m": {
+      "item": "littleutilities:pure_quartz"
+    }
+  },
+  "result": {
+    "item": "xenlib:xendric_wrench"
+  }
+}

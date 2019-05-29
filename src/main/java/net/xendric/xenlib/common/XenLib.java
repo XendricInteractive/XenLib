@@ -4,6 +4,7 @@ import static net.xendric.xenlib.common.config.XenLibConfigManager.oreGen;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.common.Mod;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.xendric.xenlib.common.config.XenLibConfigManager;
 import net.xendric.xenlib.common.core.ObjectHandler;
 import net.xendric.xenlib.common.core.proxy.CommonProxy;
@@ -45,10 +47,9 @@ public class XenLib {
 				ForgeRegistries.ITEMS.register(item);
 		}
 
-		for (Block block : ObjectHandler.BLOCKS) {
+		for (Block block : ObjectHandler.BLOCKS)
 			if (!XenLibConfigManager.disableCommonMetals)
 				ForgeRegistries.BLOCKS.register(block);
-		}
 
 		if (!oreGen.disableCopperGeneration || !XenLibConfigManager.disableCommonMetals)
 			OreGenerationHandler.addOre(ObjectHandler.ORE_COPPER.getDefaultState(), oreGen.copperGen.copperMinY,
@@ -57,13 +58,17 @@ public class XenLib {
 
 		OreGenerationHandler.generateOres();
 		OreDictionaryHandler.registerOreDict();
+
+		if(!XenLibConfigManager.disableCommonMetals)
+			GameRegistry.addSmelting(ObjectHandler.BLOCK_COPPER, new ItemStack(ObjectHandler.INGOT_COPPER), 0f);
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
 		proxy.init(e);
 		ConfigManager.sync(References.MODID, Type.INSTANCE);
-		FMLInterModComms.sendMessage(References.WAILA, "register", "net.xendric.xenlib.api.waila.WailaDataProvider.register");
+		FMLInterModComms.sendMessage(References.WAILA, "register",
+				"net.xendric.xenlib.api.waila.WailaDataProvider.register");
 	}
 
 	@EventHandler
