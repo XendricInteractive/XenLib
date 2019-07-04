@@ -8,8 +8,8 @@ public class EnumDyeColorHelper {
 	/**
 	 * Returns an EnumDyeColor based upon ore dictionary entries with
 	 * <b>dye'Color'</b> (dyeBlack, dyeYellow, dyeCyan, etc.) For when you need to
-	 * put in an itemstack (getting the held item from player) and need to
-	 * get an EnumDyeColor in return.
+	 * put in an itemstack (getting the held item from player) and need to get an
+	 * EnumDyeColor in return.
 	 * <p>
 	 * {@code EnumDyeColor color = EnumDyeColorHelper.byOreDictDyeName(heldItem);}
 	 * 
@@ -24,7 +24,7 @@ public class EnumDyeColorHelper {
 
 			// Loop through dictionary for stacks with tag "dye'Color'"
 			for (ItemStack stack : OreDictionary.getOres(stringDye)) {
-				if (stackIn.getItem() == stack.getItem()) {
+				if (stackIn.getItem() == stack.getItem() && stackIn.getMetadata() == stack.getMetadata()) {
 					// If dictionary string tag is equal to "dye'Color'"
 					// Return the correct EnumDyeColor
 					if (stringOreDyes.equals(stringDye))

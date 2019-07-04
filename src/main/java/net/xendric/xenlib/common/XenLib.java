@@ -59,7 +59,7 @@ public class XenLib {
 		OreGenerationHandler.generateOres();
 		OreDictionaryHandler.registerOreDict();
 
-		if(!XenLibConfigManager.disableCommonMetals)
+		if (!XenLibConfigManager.disableCommonMetals)
 			GameRegistry.addSmelting(ObjectHandler.BLOCK_COPPER, new ItemStack(ObjectHandler.INGOT_COPPER), 0f);
 	}
 

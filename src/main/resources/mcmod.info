@@ -3,7 +3,7 @@
   "modid": "xenlib",
   "name": "XenLib",
   "description": "Team Xendric's Library we use for our mods",
-  "version": "1.12.2-1.0.0.0",
+  "version": "1.12.2-1.1.0.0",
   "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/xenlib",
   "updateUrl": "https://raw.githubusercontent.com/XendricInteractive/XenLib/master/update.json",
