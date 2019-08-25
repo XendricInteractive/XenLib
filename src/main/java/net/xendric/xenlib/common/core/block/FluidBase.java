@@ -1,5 +1,7 @@
 package net.xendric.xenlib.common.core.block;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLiquid;
@@ -39,9 +41,9 @@ public class FluidBase extends Fluid {
 		setColor(mapColor);
 	}
 
-	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, int mapColor,
-			float overlayAlpha) {
-		super(fluidName, still, flowing, mapColor);
+	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing,
+			@Nullable ResourceLocation overlay, int mapColor, float overlayAlpha) {
+		super(fluidName, still, flowing, overlay, mapColor);
 		setAlpha(overlayAlpha);
 	}
 
