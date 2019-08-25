@@ -32,12 +32,14 @@ public class FluidBase extends Fluid {
 	protected static Material mat = Material.WATER;
 	protected static boolean pushEntity;
 
-	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing) {
-		super(fluidName, still, flowing);
+	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing,
+			@Nullable ResourceLocation overlay) {
+		super(fluidName, still, flowing, overlay);
 	}
 
-	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, int mapColor) {
-		super(fluidName, still, flowing);
+	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing,
+			@Nullable ResourceLocation overlay, int mapColor) {
+		super(fluidName, still, flowing, overlay);
 		setColor(mapColor);
 	}
 
