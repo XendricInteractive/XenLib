@@ -82,14 +82,14 @@ public class ClientProxy extends CommonProxy {
 		ModelLoader.setCustomMeshDefinition(item, new ItemMeshDefinition() {
 			@Override
 			public ModelResourceLocation getModelLocation(ItemStack stack) {
-				return new ModelResourceLocation(modid, fluidName);
+				return new ModelResourceLocation(modid + ":" + fluidName, "fluid");
 			}
 		});
 
 		ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
 			@Override
 			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
-				return new ModelResourceLocation(modid, fluidName);
+				return new ModelResourceLocation(modid + ":" + fluidName, "fluid");
 			}
 		});
 	}
