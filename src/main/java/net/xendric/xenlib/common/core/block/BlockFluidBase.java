@@ -11,8 +11,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.xendric.xenlib.client.core.proxy.ClientProxy;
 import net.xendric.xenlib.client.core.render.IModelRegister;
 
@@ -41,7 +39,7 @@ public class BlockFluidBase extends BlockFluidClassic implements IModelRegister 
 		return EnumBlockRenderType.MODEL;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
 	public void registerItemModels() {
 		ClientProxy.registerItemModel(Item.getItemFromBlock(this), 0, "inventory");
 	}

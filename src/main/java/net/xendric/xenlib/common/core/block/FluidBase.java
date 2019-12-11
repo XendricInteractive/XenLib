@@ -25,8 +25,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
 public class FluidBase extends Fluid {
-	protected static int mapColor = 0xFFFFFF;
-	protected static float alpha = 0.2f;
 	protected static SoundEvent emptySound = SoundEvents.ITEM_BUCKET_EMPTY;
 	protected static SoundEvent fillSound = SoundEvents.ITEM_BUCKET_FILL;
 	protected static Material mat = Material.WATER;
@@ -35,32 +33,7 @@ public class FluidBase extends Fluid {
 	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing,
 			@Nullable ResourceLocation overlay) {
 		super(fluidName, still, flowing, overlay);
-	}
-
-	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing,
-			@Nullable ResourceLocation overlay, int mapColor) {
-		super(fluidName, still, flowing, overlay);
-		setColor(mapColor);
-	}
-
-	public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing,
-			@Nullable ResourceLocation overlay, int mapColor, float overlayAlpha) {
-		super(fluidName, still, flowing, overlay, mapColor);
-		setAlpha(overlayAlpha);
-	}
-
-	@Override
-	public int getColor() {
-		return mapColor;
-	}
-
-	public float getAlpha() {
-		return alpha;
-	}
-
-	public FluidBase setAlpha(float alphaIn) {
-		alpha = alphaIn;
-		return this;
+		this.setUnlocalizedName(fluidName);
 	}
 
 	@Override
