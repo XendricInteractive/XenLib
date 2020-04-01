@@ -60,7 +60,7 @@ public class XenLib {
 		OreDictionaryHandler.registerOreDict();
 
 		if (!XenLibConfigManager.disableCommonMetals)
-			GameRegistry.addSmelting(ObjectHandler.BLOCK_COPPER, new ItemStack(ObjectHandler.INGOT_COPPER), 0f);
+			GameRegistry.addSmelting(ObjectHandler.ORE_COPPER, new ItemStack(ObjectHandler.INGOT_COPPER), 0f);
 	}
 
 	@EventHandler
