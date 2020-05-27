@@ -1,21 +1,20 @@
 {
   "parent": "block/block",
   "textures": {
-      "particle": "#side",
-      "top": "#top",
-      "side": "#side"
+      "particle": "#all",
+      "all": "#all"
   },
   "elements": [
     {
       "from": [ 0, 0, 0 ],
       "to": [ 16, 8, 16 ],
       "faces": {
-        "down":  { "texture": "#side"},
-        "up":    { "texture": "#top"},
-        "north": { "texture": "#side"},
-        "south": { "texture": "#side"},
-        "west":  { "texture": "#side"},
-        "east":  { "texture": "#side"}
+        "down":  { "texture": "#all"},
+        "up":    { "texture": "#all" },
+        "north": { "texture": "#all"},
+        "south": { "texture": "#all"},
+        "west":  { "texture": "#all"},
+        "east":  { "texture": "#all"}
       },
       "__comment": "Half Block (Slab)"
     }
