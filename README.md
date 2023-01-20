@@ -2,14 +2,13 @@
 [![](http://cf.way2muchnoise.eu/versions/xenlib_all.svg)](https://minecraft.curseforge.com/projects/xenlib)
 [![](http://cf.way2muchnoise.eu/versions/Latest%20MC%20Version_xenlib_latest.svg)](https://minecraft.curseforge.com/projects/xenlib)
 [![](http://cf.way2muchnoise.eu/short_xenlib_downloads.svg)](https://minecraft.curseforge.com/projects/xenlib)
-[![Discord](https://img.shields.io/discord/174514721158856704.svg?logo=discord&colorB=7289DA)](http://discord.gg/XyjNtY2)
 
-Team Xendric's Library we use for our mods.
+Xendric Interactive's library mod we use for our mods.
 
-# Team Xendric
-|![MCE626](https://avatars1.githubusercontent.com/u/3208225?s=150) | ![Tic-toc26](https://avatars1.githubusercontent.com/u/8044082?s=150)
+# Members of Xendric Interactive and this project
+|![Nulcheck](https://avatars1.githubusercontent.com/u/3208225?s=150) | ![Tic-toc26](https://avatars1.githubusercontent.com/u/8044082?s=150)
 |:---:|:---:
-| [@MCE626](https://github.com/MCE626) | [@Tic-toc26](https://github.com/Tic-toc26)
+| [@Nulcheck](https://github.com/Nulcheck) | [@Tic-toc26](https://github.com/Tic-toc26)
 
 ------
 # Custom License for this Repository
@@ -25,7 +24,7 @@ Contribution to this repository means that you are granting us rights over the c
 ## You CANNOT
 - Redistribute this in its entirety as source or compiled code.
 - Create or distribute code which contains 50% or more Functionally Equivalent Statements* from this repository.
-- Attempt to or intend to claim partial or total ownership of the original or repackaged code and/or attempt to or intend to redistribute the original or repackaged code without prior express written permission from the owners (Team Xendric). Basically saying, you can't redistribute this code and say you made it.
+- Attempt to or intend to claim partial or total ownership of the original or repackaged code and/or attempt to or intend to redistribute the original or repackaged code without prior express written permission from the owners (Xendric Interactive / Nulcheck / Tic-toc26). Basically saying, you can't redistribute this code and say you made it.
 
 ## You MUST
 - Maintain a visible repository of your code which is derived from or copied from this code.
@@ -34,4 +33,4 @@ Contribution to this repository means that you are granting us rights over the c
 
 Create mods using this library as a dependent if you want! If you see something that can be improved or a bug that we don't know how to fix, tell us. Submit a Pull Request! One thing: Don't steal please! An enormous amount of effort and time went into this and it's not ok for someone to take this and call it their own.
 
-© 2017-2019 Team Xendric
+© 2017-2023 Xendric Interactive
